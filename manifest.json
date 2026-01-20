@@ -1,9 +1,9 @@
 {
-    "display_name": "导出助手",
+    "display_name": "写作导出 ",
     "name": "LongWriter",
     "author": "Gemini",
-    "version": "0.0.2",
-    "description": "修复设置关闭后按钮不消失的Bug，优化按钮颜色",
+    "version": "400.3.0",
+    "description": "3.0增加状态栏可选复制，勾选为复制，不勾选为不复制",
     "js": "index.js",
     "css": "style.css"
 }
