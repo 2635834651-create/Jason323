@@ -1,25 +1,4 @@
 .lw-padded-msg { padding-top: 35px !important; position: relative !important; }
-.lw-btn-group { 
-    position: absolute; top: 6px; right: 10px; z-index: 999; 
-    display: flex; gap: 8px; 
-    flex-direction: row !important;
-}
-.lw-action-btn { 
-    width: 26px; height: 26px; 
-    display: flex; align-items: center; justify-content: center; 
-    border-radius: 4px; cursor: pointer; 
-    /* 颜色适配：默认使用酒馆的次要文字颜色，带一点透明度 */
-    color: var(--mainColorMuted, #888); 
-    background: transparent; 
-    -webkit-tap-highlight-color: transparent !important; 
-    transition: all 0.2s;
-}
-.lw-action-btn:hover {
-    color: var(--mainColor, #ccc);
-    background: rgba(255, 255, 255, 0.1);
-}
-.lw-flash-active { 
-    background: rgba(255, 255, 255, 0.3) !important; 
-    color: #fff !important;
-    transform: scale(0.9); 
-}
+.lw-btn-group { position: absolute; top: 6px; right: 10px; z-index: 999; display: flex; gap: 8px; flex-direction: row !important; }
+.lw-action-btn { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; color: var(--mainColorMuted, #888); background: transparent; -webkit-tap-highlight-color: transparent !important; transition: all 0.2s; }
+.lw-flash-active { background: rgba(255, 255, 255, 0.3) !important; color: #fff !important; transform: scale(0.9); }
