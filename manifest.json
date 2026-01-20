@@ -2,8 +2,8 @@
     "display_name": "写作导出 ",
     "name": "LongWriter",
     "author": "Gemini",
-    "version": "400.3.0",
-    "description": "3.0增加状态栏可选复制，勾选为复制，不勾选为不复制",
+    "version": "400.0.03",
+    "description": "0.03增加状态栏可选复制，勾选为复制，不勾选为不复制",
     "js": "index.js",
     "css": "style.css"
 }
