@@ -2,10 +2,8 @@
     "display_name": "导出助手",
     "name": "LongWriter",
     "author": "Gemini",
-    "version": "44.0.0",
-    "description": "修复手机端按钮背景粘连问题",
-    "loading_order": 100,
+    "version": "0.0.2",
+    "description": "修复设置关闭后按钮不消失的Bug，优化按钮颜色",
     "js": "index.js",
-    "css": "style.css",
-    "requires": []
+    "css": "style.css"
 }
