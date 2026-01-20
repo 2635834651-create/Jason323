@@ -1,44 +1,25 @@
 .lw-padded-msg { padding-top: 35px !important; position: relative !important; }
-
-.lw-btn-group {
-    position: absolute; top: 6px; right: 10px; z-index: 95;
-    display: flex; gap: 8px; flex-direction: row-reverse;
+.lw-btn-group { 
+    position: absolute; top: 6px; right: 10px; z-index: 999; 
+    display: flex; gap: 8px; 
+    flex-direction: row !important;
 }
-
-.lw-action-btn {
-    width: 26px; height: 26px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 4px; cursor: pointer; font-size: 15px;
-    
-    /* 默认颜色 */
-    color: var(--smart-theme-body-color-muted, #888);
-    background: transparent;
-    
-    /* === 关键 1：彻底禁用系统自带的点击高亮 === */
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-    user-select: none;
-    
-    transition: background-color 0.2s, transform 0.1s;
+.lw-action-btn { 
+    width: 26px; height: 26px; 
+    display: flex; align-items: center; justify-content: center; 
+    border-radius: 4px; cursor: pointer; 
+    /* 颜色适配：默认使用酒馆的次要文字颜色，带一点透明度 */
+    color: var(--mainColorMuted, #888); 
+    background: transparent; 
+    -webkit-tap-highlight-color: transparent !important; 
+    transition: all 0.2s;
 }
-
-/* 只有在电脑上(有鼠标)才有悬浮效果 */
-@media (hover: hover) {
-    .lw-action-btn:hover {
-        background-color: var(--smart-theme-bg, rgba(255,255,255,0.05));
-        color: var(--smart-theme-body-color, #ccc);
-    }
+.lw-action-btn:hover {
+    color: var(--mainColor, #ccc);
+    background: rgba(255, 255, 255, 0.1);
 }
-
-/* 彻底移除默认的 active/focus 样式，防止粘连 */
-.lw-action-btn:active, .lw-action-btn:focus {
-    background-color: transparent; 
-}
-
-/* === 关键 2：手动控制的闪烁状态 === */
-/* 这个类由 JS 添加，模拟“被按下去”的灰色背景 */
-.lw-flash-active {
-    background-color: rgba(255, 255, 255, 0.2) !important; /* 明显的灰亮色 */
+.lw-flash-active { 
+    background: rgba(255, 255, 255, 0.3) !important; 
     color: #fff !important;
-    transform: scale(0.95); /* 稍微缩小，增加按压感 */
+    transform: scale(0.9); 
 }
