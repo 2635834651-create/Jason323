@@ -13,11 +13,16 @@
         ];
         killers.forEach(reg => { s = s.replace(reg, ""); });
 
+        // 【第一道闸门：HTML 级物理斩断】
+        // 如果不包含菜单栏/面板，只要看到面板特有的类名，连同后面的所有代码直接删除
+        if (!incMenu) {
+            s = s.replace(/<div class="st-holo-wrapper[\s\S]*/i, "");
+        }
+
         const temp = document.createElement('div');
         temp.innerHTML = s;
 
         if (!incMenu) {
-            // DOM 级别清洗
             $(temp).find('.no-copy, .ignore-copy, .exclude-copy, .st-holo-wrapper').remove();
 
             const menuKeys = ['Master', '事件记录', '任务指引', '任务中心', '( =ω=)', '★', '⭐', '♪', '当前任务'];
@@ -38,12 +43,13 @@
         text = text.replace(/\[\s*\{\s*"original"[\s\S]*?\}\s*\]/g, "");
         text = text.replace(/\{\s*"original"[\s\S]*?"corrected"[\s\S]*?\}/g, "");
         text = text.replace(/显示前端代码块[\s\S]*/g, "");
-        text = text.replace(/<think>[\s\S]*?<\/think>/gi, ""); 
 
-        // 【新增文本级防漏杀】：如果勾选了不复制面板，利用纯文本正则把遗留的面板文字直接干掉！
+        // 【第二道闸门：纯文本级终极绞杀】
+        // 无论 HTML 怎么崩坏，只要提取出的纯文本里出现面板的标志位，
+        // 就把这个标志位及其之后的所有字符（[\s\S]*）全部抹杀！
         if (!incMenu) {
-            const holoTextRegex = /💠\s*档案:.*?\|\s*状态更新[\s\S]*?事件：[^\n]*\n[^\n]*/g;
-            text = text.replace(holoTextRegex, "");
+            text = text.replace(/💠\s*档案:[\s\S]*/g, "");
+            text = text.replace(/【状态面板】[\s\S]*/g, "");
         }
 
         return text.replace(/\n{3,}/g, "\n\n").trim();
