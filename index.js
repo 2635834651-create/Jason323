@@ -5,7 +5,7 @@
 
     function ultimateClean(html) {
         if (!html) return "";
-        // 实时获取开关状态
+        // 实时获取开关状态 (用于控制是否包含面板/菜单栏)
         const incMenu = localStorage.getItem('lw_inc_menu') === 'true'; 
         let s = html;
 
@@ -23,8 +23,12 @@
         const temp = document.createElement('div');
         temp.innerHTML = s;
 
-        // 2. 深度扫描并物理移除美化组件 (Master条、任务栏)
+        // 2. 根据开关状态，深度扫描并物理移除美化组件及状态面板
         if (!incMenu) {
+            // 【新增】精准移除带有防复制类名的全息状态面板
+            $(temp).find('.no-copy, .ignore-copy, .exclude-copy, .st-holo-wrapper').remove();
+
+            // 保留你原有的基于关键词的物理移除逻辑 (Master条、任务栏等)
             const menuKeys = ['Master', '事件记录', '任务指引', '任务中心', '( =ω=)', '★', '⭐', '♪', '当前任务'];
             // 扫描所有层级的容器，只要包含关键词就整块删除
             $(temp).find('div, section, blockquote, a, span, button, table').each(function() {
