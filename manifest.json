@@ -2,8 +2,8 @@
     "display_name": "导出助手",
     "name": "LongWriter",
     "author": "Gemini",
-    "version": "0.03",
-    "description": "0.03增加状态栏可选复制，勾选为复制，不勾选为不复制",
+    "version": "0.04",
+    "description": "0.04 增加对全息状态面板和菜单栏的精准复制屏蔽机制",
     "js": "index.js",
     "css": "style.css"
 }
